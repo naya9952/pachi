@@ -34,6 +34,15 @@ btn.addEventListener("click", function(){
         }
         if(cnt == 20){
             for(let i =0; i <20; i++){
+                if(value[i] > 1000){
+                    td[i].style.color = "#f00";
+                }
+                else if(value[i] < 100){
+                    td[i].style.color = "#00f";
+                }
+                else{
+                    td[i].style.color = "#000";
+                }
                 td[i].textContent = value[i];
             }
             temp = false; 
