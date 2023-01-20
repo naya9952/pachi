@@ -1,6 +1,7 @@
 const comTable = document.querySelector("#table");
 const btn = document.querySelector(".btn");
 let td = document.querySelectorAll("p");
+const avg_result = document.querySelector(".avg_result");
 
 comTable.style.display = "none";
 btn.addEventListener("click", function(){
@@ -17,39 +18,39 @@ btn.addEventListener("click", function(){
         alert("349이하의 값을 입력해주세요");
     }
     else{
-        console.log(per_value);
         comTable.style.display = "table";
         let rand_0_99;
         let temp = true;
         let i = 0;
         let cnt = 0;
         while(temp){
-        i ++;
-        rand_0_99 = Math.floor(Math.random() * per_value);
-        if (rand_0_99 == 1){
-            console.log(i);
-            value.push(i);
-            i =0;
-            cnt ++;
-        }
-        if(cnt == 20){
-            for(let i =0; i <20; i++){
-                if(value[i] > 1000){
-                    td[i].style.color = "#f00";
-                }
-                else if(value[i] < 100){
-                    td[i].style.color = "#00f";
-                }
-                else{
-                    td[i].style.color = "#000";
-                }
-                td[i].textContent = value[i];
+            i ++;
+            rand_0_99 = Math.floor(Math.random() * per_value);
+            if (rand_0_99 == 1){
+                value.push(i);
+                i =0;
+                cnt ++;
             }
-            temp = false; 
+            if(cnt == 20){
+                let sum =0;
+                for(let i =0; i <20; i++){
+                    if(value[i] > 700){
+                        td[i].style.color = "#f00";
+                    }
+                    else if(value[i] < 200){
+                        td[i].style.color = "#00f";
+                    }
+                    else{
+                        td[i].style.color = "#000";
+                    }
+                    td[i].textContent = value[i];
+                    sum = sum + value[i];
+                    
+                }
+                console.log(sum/20);
+                temp = false; 
+                avg_result.textContent = "평균 : " + sum/20;
+            }
         }
-        }
-    }
-    
+    } 
 });
-
-
