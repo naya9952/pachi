@@ -34,7 +34,7 @@ btn.addEventListener("click", function(){
             if(cnt == 20){
                 let sum =0;
                 for(let i =0; i <20; i++){
-                    if(value[i] > 700){
+                    if(value[i] >= 700){
                         td[i].style.color = "#f00";
                     }
                     else if(value[i] < 200){
